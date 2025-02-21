@@ -2,8 +2,8 @@ package org.bk.misc;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.bk.misc.json.JsonUtil;
 
-import java.io.File;
 import java.lang.reflect.Field;
 
 public class ReflectionTest {
@@ -14,6 +14,6 @@ public class ReflectionTest {
     ObjectMapper mapper = (ObjectMapper)field.get(null);
     mapper.getFactory().configure(JsonFactory.Feature.FAIL_ON_SYMBOL_HASH_OVERFLOW, false);
 
-    mapper.readTree(new File("./test.json"));
+    JsonUtil.parse();
   }
 }
